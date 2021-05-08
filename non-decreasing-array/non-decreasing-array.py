@@ -1,9 +1,12 @@
 class Solution:
-    def isArraySorted(self,array1, index):
-        array1.pop(index)
-        subArray = array1.copy()
-        subArray.sort()
-        return subArray == array1
+    def isArraySorted(self,array, index):
+        array.pop(index)
+        idx = 0
+        while idx < len(array)-1:
+            if array[idx] > array[idx+1]:
+                return False
+            idx += 1
+        return True
     
     def checkPossibility(self, nums: List[int]) -> bool:
     
