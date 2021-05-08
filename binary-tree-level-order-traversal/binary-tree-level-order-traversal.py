@@ -1,35 +1,26 @@
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
-from queue import Queue
 class Solution:
-    def BFS(self, myqueue: Queue)-> List[int]:
-        
-        initialQueueLength = myqueue.qsize()
-        i = 0
-        subValList = []
-        while i < initialQueueLength:
-            node : TreeNode = myqueue.get()
-            i += 1    
-            if node is None:
-                continue
-            subValList.append(node.val) 
-            if node.left is not None:
-                myqueue.put(node.left)
-            if node.right is not None:
-                myqueue.put(node.right)
-        return subValList
+    def addValToCollection(self, nodeValCollection: List[List[int]] , nodeCollection:List[TreeNode]):
+        tempList = []
+        tempNodeList = []
+        for root in nodeCollection:
+            if root != None:
+                tempList.append(root.val)
+                if root.left != None:
+                    tempNodeList.append(root.left)
+                if root.right != None:
+                    tempNodeList.append(root.right)
+        if len(tempList) > 0:
+             nodeValCollection.append(tempList)
+        return tempNodeList,nodeValCollection
+
         
     def levelOrder(self, root: TreeNode) -> List[List[int]]:
         
-        myqueue = Queue()
-        if root is None:
-            return []
-        myqueue.put(root)
-        valList = []
-        while myqueue.qsize() > 0:
-            valList.append(self.BFS(myqueue))
-        return valList
+        #Input is a root node which is a binary tree
+        # in each iteration print the level node values
+        # modify the node collection 
+        nodeValCollection : List[List[int]] = []
+        nodeCollection = [root]
+        while  len(nodeCollection) > 0:
+            nodeCollection,nodeValCollection = self.addValToCollection(nodeValCollection, nodeCollection)
+        return nodeValCollection
