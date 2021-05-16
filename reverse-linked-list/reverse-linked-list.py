@@ -7,11 +7,12 @@ class Solution:
     def reverse(self, head, reversedList):
         if head == None:
             return reversedList
-        reversedList = ListNode(head.val,reversedList)
+        tempNode = ListNode(head.val,reversedList)
+        reversedList = tempNode
         reversedList = self.reverse(head.next, reversedList)
         return reversedList
     
     def reverseList(self, head: ListNode) -> ListNode:
-        
-        reversedList = self.reverse(head, None)
+        reversedList = None
+        reversedList = self.reverse(head, reversedList)
         return reversedList
