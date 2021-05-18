@@ -1,3 +1,4 @@
+[Discussion Post (created on 18/4/2021 at 19:57)](https://leetcode.com/problems/validate-binary-search-tree/discuss/1216092/Python3-solution)  
 <h2>98. Validate Binary Search Tree</h2><h3>Medium</h3><hr><div><p>Given the <code>root</code> of a binary tree, <em>determine if it is a valid binary search tree (BST)</em>.</p>
 
 <p>A <strong>valid BST</strong> is defined as follows:</p>
