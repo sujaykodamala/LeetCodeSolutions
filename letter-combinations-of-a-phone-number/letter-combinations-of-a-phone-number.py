@@ -15,19 +15,17 @@ class Solution:
         if len(digits) == 0:
             return []
         myDict = {}
-        myDict['0'] = ['0']
-        myDict['1'] = ['1']
         asciiIdx = 97
         idx = 2
-        while asciiIdx < 120 and idx <= 9:
-            myDict[str(idx)] = [chr(asciiIdx),chr(asciiIdx+1),chr(asciiIdx+2)]
-            if str(idx) == '7':
-                myDict['7'].append('s')
-                asciiIdx += 1
+        while asciiIdx < 120 and idx <= 7:
+            myDict[str(idx)] = [chr(asciiIdx), chr(asciiIdx+1), chr(asciiIdx+2)]
             idx += 1
             asciiIdx += 3
-            
-        myDict['9'].append('z') 
+        myDict['7'].append('s')
+        myDict['8'] = ['t','u','v']
+        myDict['9'] = ['w','x','y','z']
+        myDict['0'] = ['0']
+        myDict['1'] = ['1']
         result = []
         if len(digits) == 1:
             return myDict[digits[0]]
