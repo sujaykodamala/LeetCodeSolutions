@@ -5,15 +5,17 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    
-    def isMirror(self, root1: TreeNode, root2: TreeNode):
+    def areValuesSame(self, root1, root2):
         if root1 == None and root2 == None:
             return True
-        elif root1 == None or root2 == None:
+        if root1 == None or root2 == None:
             return False
-        return root1.val ==  root2.val and self.isMirror(root1.left,root2.right) and self.isMirror(root1.right,root2.left)
-    
-    def isSymmetric(self, root: TreeNode) -> bool:
-        return self.isMirror(root, root)
-    
+        if root1.val != root2.val:
+            return False
         
+        return self.areValuesSame(root1.left, root2.right) and self.areValuesSame(root1.right, root2.left)
+        
+    def isSymmetric(self, root: TreeNode) -> bool:
+        if root == None:
+            return True
+        return self.areValuesSame(root.left, root.right)
