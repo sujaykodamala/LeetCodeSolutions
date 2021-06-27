@@ -62,8 +62,6 @@ class Solution:
                 listNode.next = None if len(l) == 1 else self.prepareLinkedList(l[1:len(l)])
         return listNode
                 
-            
-            
         
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
         #Iterate through the nodes and prepare a number
